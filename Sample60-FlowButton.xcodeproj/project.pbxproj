@@ -11,6 +11,8 @@
 		AEA9FEAB27852F2F003EE6F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9FEAA27852F2F003EE6F4 /* ContentView.swift */; };
 		AEA9FEAD27852F31003EE6F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA9FEAC27852F31003EE6F4 /* Assets.xcassets */; };
 		AEA9FEB027852F31003EE6F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA9FEAF27852F31003EE6F4 /* Preview Assets.xcassets */; };
+		AEA9FEB7278579D4003EE6F4 /* FlowViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9FEB6278579D4003EE6F4 /* FlowViewData.swift */; };
+		AEA9FEB927857A19003EE6F4 /* FlowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9FEB827857A19003EE6F4 /* FlowButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		AEA9FEAA27852F2F003EE6F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AEA9FEAC27852F31003EE6F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEA9FEAF27852F31003EE6F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AEA9FEB6278579D4003EE6F4 /* FlowViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewData.swift; sourceTree = "<group>"; };
+		AEA9FEB827857A19003EE6F4 /* FlowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				AEA9FEA827852F2F003EE6F4 /* Sample60_FlowButtonApp.swift */,
 				AEA9FEAA27852F2F003EE6F4 /* ContentView.swift */,
+				AEA9FEB6278579D4003EE6F4 /* FlowViewData.swift */,
+				AEA9FEB827857A19003EE6F4 /* FlowButton.swift */,
 				AEA9FEAC27852F31003EE6F4 /* Assets.xcassets */,
 				AEA9FEAE27852F31003EE6F4 /* Preview Content */,
 			);
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA9FEB7278579D4003EE6F4 /* FlowViewData.swift in Sources */,
 				AEA9FEAB27852F2F003EE6F4 /* ContentView.swift in Sources */,
 				AEA9FEA927852F2F003EE6F4 /* Sample60_FlowButtonApp.swift in Sources */,
+				AEA9FEB927857A19003EE6F4 /* FlowButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
