@@ -12,7 +12,7 @@ struct FlowButton: View {
     // 引数
     @Binding var flowViewData: FlowViewData?
     // 変数
-//    @State var largeButton = false          // 大きいボタン
+    @State var modeListOn = false   // モードリストの表示
     
     var body: some View {
         if let flowViewData = flowViewData {
@@ -22,9 +22,19 @@ struct FlowButton: View {
                     .opacity(0.7)
                 VStack {
                     if flowViewData.largeOn {
-                        centerButton    // 中心ボタン
-                        imageModeButton
-                        rotateButton
+                        modeText            // 現在のモード
+                        // モードリストのON /OFFで表示を変更
+                        if modeListOn {
+                            imageModeList   // モードリスト
+                        }else{
+                            if flowViewData.mode == .image {
+                                imageFitButton  // マップ画像のフィットボタン
+                            }else{
+                                centerButton    // 中心ボタン
+                            }
+                            imageModeButton // モードボタン
+                            rotateButton    // 回転ボタン
+                        }
                     }
                     // 切り替えボタンで、フルサイズに変更
                     Image(systemName: "largecircle.fill.circle")
@@ -41,9 +51,23 @@ struct FlowButton: View {
             }
         }
     }
-    // 中心ボタン
+    // モード表示
+    var modeText: some View {
+        ZStack {
+            if let mode = flowViewData?.mode {
+                switch mode {
+                case .off:
+                    Text("OFF")
+                case .map:
+                    Text("マップ")
+                case .image:
+                    Text("画像")
+                }
+            }
+        }.foregroundColor(.white)
+    }
+    // 中心ボタン：画像モード以外の時
     var centerButton: some View {
-        // 中心ボタン
         Button(action: {
             print("中心")
         }){
@@ -56,10 +80,26 @@ struct FlowButton: View {
             }
         }
     }
+    // フィットボタン：画像モードの時のみ
+    var imageFitButton: some View {
+        Button(action: {
+            print("フィット")
+        }){
+            ZStack {
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.white)
+                    .frame(width: 70, height: 30)
+                Text("フィット")
+                    .font(.subheadline)
+            }
+        }
+    }
     // 画像モードボタン
     var imageModeButton: some View {
         // 画像モードボタン
         Button(action: {
+            // モードリストを表示
+            modeListOn = true
         }){
             ZStack {
                 RoundedRectangle(cornerRadius:10)
@@ -72,10 +112,43 @@ struct FlowButton: View {
     }
     // 画像モード選択リスト
     var imageModeList: some View {
-        List {
-            Text("OFF")
-            Text("フリー")
-            Text("最大")
+        VStack {
+            Button(action: {
+                flowViewData?.mode = .off
+                modeListOn = false
+            }){
+                ZStack {
+                    RoundedRectangle(cornerRadius:10)
+                        .foregroundColor(.white)
+                        .frame(width: 70, height: 30)
+                    Text("OFF")
+                        .font(.subheadline)
+                }
+            }
+            Button(action: {
+                flowViewData?.mode = .map
+                modeListOn = false
+            }){
+                ZStack {
+                    RoundedRectangle(cornerRadius:10)
+                        .foregroundColor(.white)
+                        .frame(width: 70, height: 30)
+                    Text("マップ")
+                        .font(.subheadline)
+                }
+            }
+            Button(action: {
+                flowViewData?.mode = .image
+                modeListOn = false
+            }){
+                ZStack {
+                    RoundedRectangle(cornerRadius:10)
+                        .foregroundColor(.white)
+                        .frame(width: 70, height: 30)
+                    Text("画像")
+                        .font(.subheadline)
+                }
+            }
         }
     }
     // 回転ボタン
